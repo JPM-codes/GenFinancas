@@ -10,6 +10,21 @@ $tipo_despesa = $pdo->query('SELECT id_tipo_despesa, descricao
     ORDER BY descricao')
     ->fetchAll();
 
+    if(isset($_POST['excluir'])) {
+        $stmt = $pdo->prepare(
+            'UPDATE tipo_despesa 
+            SET IND_EXCLUIDO = 1
+            WHERE ID_TIPO_DESPESA = :id'
+        );
+        
+        $stmt->execute([
+            ':id' => $_POST['excluir']
+        ]);
+
+        header('Location: index.php');
+        exit;
+    }
+
 ?>
 
 <br />
@@ -24,14 +39,21 @@ $tipo_despesa = $pdo->query('SELECT id_tipo_despesa, descricao
             </tr>
         </thead>
         <tbody>
+            <?php foreach($tipo_despesa as $t): ?>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th scope="row"><?= $t['id_tipo_despesa']?></th>
+                <td><?= $t['descricao'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-danger">Excluir</button>
+                    <a href="edit.php?id_tipo_despesa=<?= $t['id_tipo_despesa'] ?>">
+                        <button type="button" class="btn btn-primary">Editar</button>
+                    </a>
+                    <form method="post" style="display: inline;">
+                        <input type="hidden" name="excluir" value="<?= $t['id_tipo_despesa'] ?>">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
                 </td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
