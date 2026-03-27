@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";  /* caminho ou site */
-$db   = "genfinancas"; /* nome do BD */
+$db   = "bd_financeiro"; /* nome do BD */
 $user = "root";       /* usuário do BD */
 $pass = "";           /* senha do BD */
 

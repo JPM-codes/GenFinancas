@@ -15,7 +15,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/tipo_despesa/index.php">Tipos de Despesas</a></li>
-                <li><a class="dropdown-item" href="#">Forma de Pagamento</a></li>
+                <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/forma_pagamento/index.php">Forma de Pagamento</a></li>
                 <li><a class="dropdown-item" href="#">Movimentação</a></li>
             </ul>
             </li>
@@ -25,7 +25,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/tipo_despesa/new.php">Tipos de Despesas</a></li>
-                <li><a class="dropdown-item" href="#">Forma de Pagamento</a></li>
+                <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/forma_pagamento/new.php">Forma de Pagamento</a></li>
                 <li><a class="dropdown-item" href="#">Movimentação</a></li>
             </ul>
             </li>            
